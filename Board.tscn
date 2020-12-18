@@ -1,7 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Line.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Board.gd" type="Script" id=2]
 
 [node name="Board" type="Control"]
 anchor_bottom = 1.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -16,121 +20,122 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line1" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_right = 500.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line2" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 50.0
 margin_right = 500.0
 margin_bottom = 100.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line3" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 100.0
 margin_right = 500.0
 margin_bottom = 150.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line4" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 150.0
 margin_right = 500.0
 margin_bottom = 200.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line5" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 200.0
 margin_right = 500.0
 margin_bottom = 250.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line6" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 250.0
 margin_right = 500.0
 margin_bottom = 300.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line7" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 300.0
 margin_right = 500.0
 margin_bottom = 350.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer8" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line8" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 350.0
 margin_right = 500.0
 margin_bottom = 400.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer9" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line9" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 400.0
 margin_right = 500.0
 margin_bottom = 450.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer10" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line10" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 450.0
 margin_right = 500.0
 margin_bottom = 500.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer11" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line11" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 500.0
 margin_right = 500.0
 margin_bottom = 550.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer12" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line12" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 550.0
 margin_right = 500.0
 margin_bottom = 600.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer13" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line13" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 600.0
 margin_right = 500.0
 margin_bottom = 650.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer14" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line14" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 650.0
 margin_right = 500.0
 margin_bottom = 700.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer15" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line15" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 700.0
 margin_right = 500.0
 margin_bottom = 750.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer16" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line16" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 750.0
 margin_right = 500.0
 margin_bottom = 800.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer17" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line17" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 800.0
 margin_right = 500.0
 margin_bottom = 850.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer18" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line18" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 850.0
 margin_right = 500.0
 margin_bottom = 900.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer19" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line19" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 900.0
 margin_right = 500.0
 margin_bottom = 950.0
-rect_min_size = Vector2( 0, 50 )
 
-[node name="HBoxContainer20" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Line20" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
 margin_top = 950.0
 margin_right = 500.0
 margin_bottom = 1000.0
-rect_min_size = Vector2( 0, 50 )
+
+[node name="Tween" type="Tween" parent="."]
