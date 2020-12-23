@@ -23,6 +23,10 @@ _global_script_class_icons={
 config/name="Tetris"
 config/icon="res://icon.png"
 
+[autoload]
+
+Piece="*res://Piece.gd"
+
 [display]
 
 window/size/width=700

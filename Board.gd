@@ -7,19 +7,27 @@ var height = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for i in range(height):
-		board.append([])
-		for j in range (width):
-			board[j].append(0)
-	board[1][2] = Color(0.7,0,0.5,1)
-	updateCells()
-	animation(lines)
+#	for i in range(height):
+#		board.append([])
+#		for j in range (width):
+#			if i != 3 :
+#				board[i].append(0)
+#			else :
+#				board[i].append(Color(0.7,0,0.65,1))
+#	updateCells()
+#	animation(lines)
+#
+#	var piece = load("res://Piece.gd")
+#	piece.new("T")
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func get_board():
+	return board
 
 func animation(deletedLines : Array):
 	var nblines = deletedLines.size()
@@ -32,8 +40,17 @@ func animation(deletedLines : Array):
 			nblines -= 1
 		else :
 			line.animation(nblines)
-		
+
 		i+=1
+
+func updateBoard():
+	var linesToRemove = []
+	for line in range(height) :
+		if not (0 in board[line]) :
+			linesToRemove.append(line)
+	for i in linesToRemove :
+		board.remove(i)
+		board.insert(0,[0,0,0,0,0,0,0,0,0,0])
 
 func updateCells():
 	var color
