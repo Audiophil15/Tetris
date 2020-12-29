@@ -4,8 +4,9 @@ extends "res://Piece.gd"
 func _ready():
 	create("T")
 	self.update()
+	print($".".rect_position, visual_left_side, visual_right_side)
 	var maxx = 0
-	for i in range(15):
+	for i in range(22):
 		maxx = max(maxx, rect_position.x)
 		yield(get_tree().create_timer(1), "timeout")
 		down()

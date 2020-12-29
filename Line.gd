@@ -18,7 +18,7 @@ func disable():
 		cellID = "Cell"+str(i)
 		get_node(cellID).disable()
 
-func animation(height : int):
+func animationDown(height : int):
 	var tween = $Tween
 	tween.interpolate_property($".", "rect_position", $".".rect_position, $".".rect_position + Vector2(0,50*height), 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start()

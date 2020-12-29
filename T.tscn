@@ -5,8 +5,8 @@
 
 [node name="T" type="Control"]
 modulate = Color( 0.0588235, 0.121569, 0.815686, 1 )
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 150.0
+margin_bottom = 150.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -16,6 +16,9 @@ __meta__ = {
 margin_right = 40.0
 margin_bottom = 40.0
 custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HBoxContainer1" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 150.0

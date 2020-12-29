@@ -138,4 +138,10 @@ margin_top = 950.0
 margin_right = 500.0
 margin_bottom = 1000.0
 
+[node name="Line21" parent="." instance=ExtResource( 1 )]
+anchor_right = 0.0
+margin_top = 1000.0
+margin_right = 500.0
+margin_bottom = 1050.0
+
 [node name="Tween" type="Tween" parent="."]

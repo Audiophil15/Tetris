@@ -8,8 +8,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var pieceT = load("res://T.tscn").instance()
-	$".".add_child(pieceT)
+#	var pieceT = load("res://T.tscn").instance()
+#	$".".add_child(pieceT)
 	pass # Replace with function body.
 
 
