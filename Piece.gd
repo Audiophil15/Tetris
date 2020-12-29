@@ -28,7 +28,8 @@ func create(type : String):
 
 func down():
 	$".".rect_position.y+=50
-
+#	$".".move_and_collide(Vector2(0, 50))
+	
 func left():
 	$".".rect_position.x-=50
 	clampPosition()
@@ -80,6 +81,6 @@ func update():
 				# La cellule visuelle a des dimensions differentes de celles du tableau, il faut donc les utiliser elles plutot que celles du tableau
 				visual_left_side = min(visual_left_side, index)
 				visual_right_side = max(visual_right_side, index)
-				cellule.enable(color)
+				cellule.enable(color, true)
 
 	visual_right_side += 1 #Needs a +1 because it's at least 1 cell

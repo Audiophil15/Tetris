@@ -82,4 +82,4 @@ func updateCells():
 			if typeof(color) == TYPE_INT :
 				cell.disable()
 			else :
-				cell.enable(color)
+				cell.enable(color, false)
