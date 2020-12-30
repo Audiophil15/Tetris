@@ -36,6 +36,37 @@ func create_board():
 
 func get_board():
 	return board
+	
+func is_on_soil(left_id : int, up_id : int, other_board : Array) -> bool:
+	var empty
+	var cell
+	var cellID
+	for line in range(len(other_board)):
+		for index in range(len(other_board[0])) :
+			empty = typeof(other_board[line][index]) == TYPE_INT
+			if not empty:
+				if up_id + line >= height-1:
+					return true
+				if typeof(board[up_id + line+1][left_id + index]) != TYPE_INT:
+					return true
+	return false
+
+
+func is_position_free(left_id : int, up_id : int, other_board : Array) -> bool:
+	var empty
+	var cell
+	var cellID
+	for line in range(len(other_board)):
+		for index in range(len(other_board[0])) :
+			empty = typeof(other_board[line][index]) == TYPE_INT
+			if not empty:
+				if left_id + index < 0 or left_id + index >= width:
+					return false
+				if up_id + line >= height:
+					return false
+				if typeof(board[up_id + line][left_id + index]) != TYPE_INT:
+					return false
+	return true
 
 func pieceFell():
 	updateBoard()
@@ -82,4 +113,15 @@ func updateCells():
 			if typeof(color) == TYPE_INT :
 				cell.disable()
 			else :
-				cell.enable(color, false)
+				cell.enable(color)
+
+
+func _on_Area2D_body_exited(body):
+#	print("eeeeeee", body.get_name()) # Replace with function body.
+	pass
+
+func _on_Area2D_body_entered(body):
+	if body.get_name()=="HBody":
+		print("ooooo", body.get_name())
+		print(body.get_parent().get_parent().get_parent().get_parent().get_name())
+		body.get_parent().get_parent().get_parent().get_parent().set_impossible_pos()

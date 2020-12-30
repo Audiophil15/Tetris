@@ -9,6 +9,7 @@ func _ready():
 	for i in range(22):
 		maxx = max(maxx, rect_position.x)
 		yield(get_tree().create_timer(1), "timeout")
+#		yield(get_tree().create_timer(0.1), "timeout")
 		down()
 		rotateLeft()
 		if maxx > 200 :
