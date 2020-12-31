@@ -37,6 +37,17 @@ func create_board():
 func get_board():
 	return board
 	
+func land_piece(left_id : int, up_id : int, other_board : Array):
+	var color
+	for line in range(len(other_board)):
+		for index in range(len(other_board[0])) :
+			color = other_board[line][index]
+			if typeof(color) != TYPE_INT:
+				board[up_id + line][left_id + index] = color
+	self.updateBoard()
+	self.updateCells()
+	pass
+
 func is_on_soil(left_id : int, up_id : int, other_board : Array) -> bool:
 	var empty
 	var cell
@@ -97,7 +108,6 @@ func animateLinesDown(deletedLines : Array):
 			nblines -= 1
 		else :
 			line.animationDown(nblines)
-
 		i+=1
 
 # A appeler en 3e, met a jour les lignes visuelles
@@ -116,12 +126,12 @@ func updateCells():
 				cell.enable(color)
 
 
-func _on_Area2D_body_exited(body):
-#	print("eeeeeee", body.get_name()) # Replace with function body.
-	pass
-
-func _on_Area2D_body_entered(body):
-	if body.get_name()=="HBody":
-		print("ooooo", body.get_name())
-		print(body.get_parent().get_parent().get_parent().get_parent().get_name())
-		body.get_parent().get_parent().get_parent().get_parent().set_impossible_pos()
+#func _on_Area2D_body_exited(body):
+##	print("eeeeeee", body.get_name()) # Replace with function body.
+#	pass
+#
+#func _on_Area2D_body_entered(body):
+#	if body.get_name()=="HBody":
+#		print("ooooo", body.get_name())
+#		print(body.get_parent().get_parent().get_parent().get_parent().get_name())
+#		body.get_parent().get_parent().get_parent().get_parent().set_impossible_pos()

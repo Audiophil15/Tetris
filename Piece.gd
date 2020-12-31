@@ -45,7 +45,9 @@ func is_position_free(new_board=self.piece_board) -> bool:
 
 func manage_soil():
 	if self.main_board.is_on_soil(main_idx(), main_idy(), self.piece_board):
+		print("landed")
 		self.main_board.land_piece(main_idx(), main_idy(), self.piece_board)
+		self.rect_position.y = 0
 
 func create(type : String):
 	if type == "T":
@@ -55,7 +57,8 @@ func create(type : String):
 	piece_board_old = piece_board.duplicate(true)
 
 func set_impossible_pos():
-	self.impossible_position = true
+#	self.impossible_position = true
+	pass
 
 func down():
 	$".".rect_position.y+=50
