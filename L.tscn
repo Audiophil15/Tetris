@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://T.gd" type="Script" id=1]
+[ext_resource path="res://L.gd" type="Script" id=1]
 [ext_resource path="res://MovingCell.tscn" type="PackedScene" id=2]
 
-[node name="T" type="Control"]
+[node name="L" type="Control"]
 margin_right = 150.0
 margin_bottom = 150.0
 script = ExtResource( 1 )

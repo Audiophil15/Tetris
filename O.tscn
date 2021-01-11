@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://T.gd" type="Script" id=1]
+[ext_resource path="res://O.gd" type="Script" id=1]
 [ext_resource path="res://MovingCell.tscn" type="PackedScene" id=2]
 
-[node name="T" type="Control"]
-margin_right = 150.0
-margin_bottom = 150.0
+[node name="O" type="Control"]
+margin_right = 100.0
+margin_bottom = 100.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -20,7 +20,7 @@ __meta__ = {
 }
 
 [node name="HBoxContainer1" type="HBoxContainer" parent="VBoxContainer"]
-margin_right = 150.0
+margin_right = 100.0
 margin_bottom = 50.0
 custom_constants/separation = 0
 
@@ -33,14 +33,9 @@ margin_left = 50.0
 margin_right = 100.0
 margin_bottom = 50.0
 
-[node name="Cell3" parent="VBoxContainer/HBoxContainer1" instance=ExtResource( 2 )]
-margin_left = 100.0
-margin_right = 150.0
-margin_bottom = 50.0
-
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 50.0
-margin_right = 150.0
+margin_right = 100.0
 margin_bottom = 100.0
 custom_constants/separation = 0
 
@@ -51,29 +46,4 @@ margin_bottom = 50.0
 [node name="Cell2" parent="VBoxContainer/HBoxContainer2" instance=ExtResource( 2 )]
 margin_left = 50.0
 margin_right = 100.0
-margin_bottom = 50.0
-
-[node name="Cell3" parent="VBoxContainer/HBoxContainer2" instance=ExtResource( 2 )]
-margin_left = 100.0
-margin_right = 150.0
-margin_bottom = 50.0
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 100.0
-margin_right = 150.0
-margin_bottom = 150.0
-custom_constants/separation = 0
-
-[node name="Cell1" parent="VBoxContainer/HBoxContainer3" instance=ExtResource( 2 )]
-margin_right = 50.0
-margin_bottom = 50.0
-
-[node name="Cell2" parent="VBoxContainer/HBoxContainer3" instance=ExtResource( 2 )]
-margin_left = 50.0
-margin_right = 100.0
-margin_bottom = 50.0
-
-[node name="Cell3" parent="VBoxContainer/HBoxContainer3" instance=ExtResource( 2 )]
-margin_left = 100.0
-margin_right = 150.0
 margin_bottom = 50.0

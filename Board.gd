@@ -4,35 +4,28 @@ var lines_to_delete = []
 var board = []
 var width = 10
 var height = 20
+var piece
+var next_piece
+var piece_names = ["T", "L", "I", "O", "S", "Z"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	create_board()
 	updateCells()
-	pieceFell()
+#	pieceFell()
 	
-	var pieceT = load("res://T.tscn").instance()
-	$".".add_child(pieceT)
-	pass # Replace with function body.
+	self.new_piece()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func new_piece():
+	piece = load("res://"+ piece_names[randi()%len(piece_names)] +".tscn").instance()
+	$".".add_child(piece)
 
 func create_board():
 	for i in range(height):
 		board.append([])
 		for j in range (width):
-			if i == 17 :
-				board[i].append(Color(0.7,0.7,0))
-			else: 
-				board[i].append(0)
+			board[i].append(0)
 	board.append([])
-	for j in range (width):
-		board[height].append(Color(0,0,0))
-	for i in range(3):
-		board[15][i] = Color(0.7,0.9,0)
 
 func get_board():
 	return board
@@ -44,9 +37,10 @@ func land_piece(left_id : int, up_id : int, other_board : Array):
 			color = other_board[line][index]
 			if typeof(color) != TYPE_INT:
 				board[up_id + line][left_id + index] = color
-	self.updateBoard()
+	piece.queue_free()
 	self.updateCells()
-	pass
+	pieceFell()
+	self.new_piece()
 
 func is_on_soil(left_id : int, up_id : int, other_board : Array) -> bool:
 	var empty
@@ -124,14 +118,3 @@ func updateCells():
 				cell.disable()
 			else :
 				cell.enable(color)
-
-
-#func _on_Area2D_body_exited(body):
-##	print("eeeeeee", body.get_name()) # Replace with function body.
-#	pass
-#
-#func _on_Area2D_body_entered(body):
-#	if body.get_name()=="HBody":
-#		print("ooooo", body.get_name())
-#		print(body.get_parent().get_parent().get_parent().get_parent().get_name())
-#		body.get_parent().get_parent().get_parent().get_parent().set_impossible_pos()
