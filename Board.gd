@@ -1,15 +1,22 @@
 extends Control
 
+signal changed_piece(letter)
+
 var lines_to_delete = []
 var board = []
 var width = 10
 var height = 20
 var piece
 var next_piece
+var next_piece_letter
 var piece_names = ["T", "L", "I", "O", "S", "Z"]
+var score
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	score = 0
+#	piece = load("res://"+ piece_names[randi()%len(piece_names)] +".tscn").instance()
+	next_piece_letter = piece_names[randi()%len(piece_names)]
 	create_board()
 	updateCells()
 #	pieceFell()
@@ -17,8 +24,13 @@ func _ready():
 	self.new_piece()
 
 func new_piece():
-	piece = load("res://"+ piece_names[randi()%len(piece_names)] +".tscn").instance()
+	piece = load("res://"+ next_piece_letter +".tscn").instance()
+	next_piece_letter = piece_names[randi()%len(piece_names)]
 	$".".add_child(piece)
+	for i in range(5-piece.piece_board_size/2):
+		piece.right()
+#	piece = next_piece
+	emit_signal("changed_piece", next_piece_letter)
 
 func create_board():
 	for i in range(height):
@@ -40,6 +52,10 @@ func land_piece(left_id : int, up_id : int, other_board : Array):
 	piece.queue_free()
 	self.updateCells()
 	pieceFell()
+	for i in range(width):
+		if typeof(board[0][i]) != TYPE_INT :
+			endgame()
+			return
 	self.new_piece()
 
 func is_on_soil(left_id : int, up_id : int, other_board : Array) -> bool:
@@ -75,7 +91,6 @@ func is_position_free(left_id : int, up_id : int, other_board : Array) -> bool:
 
 func pieceFell():
 	updateBoard()
-	print(lines_to_delete)
 	animateLinesDown(lines_to_delete)
 	yield(get_tree().create_timer(1), "timeout") #Il faut attendre que l animation soit finie
 	updateCells()
@@ -89,6 +104,8 @@ func updateBoard():
 	for i in lines_to_delete :
 		board.remove(i)
 		board.insert(0,[0,0,0,0,0,0,0,0,0,0])
+	score += lines_to_delete.size()
+	Global.score = score
 
 # A appeler en 2e, cree l animation des lignes
 func animateLinesDown(deletedLines : Array):
@@ -118,3 +135,7 @@ func updateCells():
 				cell.disable()
 			else :
 				cell.enable(color)
+				
+func endgame():
+	yield(get_tree().create_timer(1.5), "timeout")
+	get_tree().change_scene("res://Endscreen.tscn")

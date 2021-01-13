@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Board.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Gameplay.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Art/CUBE.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Art/GameInterface.png" type="Texture" id=5]
+[ext_resource path="res://Art/tetris.ogg" type="AudioStream" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 4 )
 
 [node name="Gameplay" type="Control"]
 anchor_right = 1.0
@@ -30,18 +37,28 @@ margin_left = 500.0
 margin_right = 700.0
 margin_bottom = 1000.0
 rect_min_size = Vector2( 200, 0 )
-texture = ExtResource( 3 )
-expand = true
+texture = ExtResource( 5 )
+
+[node name="NextPieceBG" type="ColorRect" parent="HBoxContainer/TextureRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -80.0
+margin_top = 150.0
+margin_right = 80.0
+margin_bottom = 310.0
+color = Color( 0.0862745, 0.0862745, 0.0862745, 0.686275 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="NextPiece" type="TextureRect" parent="HBoxContainer/TextureRect"]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
+margin_left = -80.0
+margin_top = 150.0
+margin_right = 80.0
+margin_bottom = 310.0
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -51,12 +68,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -87.5
+margin_left = -87.0
 margin_top = -30.0
-margin_right = 87.5
-margin_bottom = -4.99997
+margin_right = 88.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 1 )
 text = "25"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true

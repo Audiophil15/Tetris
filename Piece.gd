@@ -43,7 +43,6 @@ func _physics_process(delta):
 				self.left()
 			else:
 				self.right()
-			print(timer_lateral)
 			timer_lateral += delta
 		else:
 			timer_lateral += delta
@@ -70,7 +69,6 @@ func is_position_free(add_idx=0, new_board=self.piece_board) -> bool:
 
 func manage_soil():
 	if self.main_board.is_on_soil(main_idx(), main_idy(), self.piece_board):
-		print("landed")
 		self.main_board.land_piece(main_idx(), main_idy(), self.piece_board)
 
 func create():
