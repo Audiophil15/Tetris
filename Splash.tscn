@@ -1,16 +1,66 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Art/Space.jpg" type="Texture" id=1]
 [ext_resource path="res://Splash.gd" type="Script" id=2]
 [ext_resource path="res://Art/CUBE.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Art/tetris_intro.ogg" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
 font_data = ExtResource( 3 )
 
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.196078, 0.196078, 0.196078, 0.54902 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 9
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.0588235, 0.0588235, 0.0588235, 0.196078 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [sub_resource type="DynamicFont" id=2]
 size = 25
 font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.196078, 0.196078, 0.196078, 0.54902 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.0588235, 0.0588235, 0.0588235, 0.196078 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="DynamicFont" id=3]
 size = 25
@@ -55,10 +105,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -100.0
-margin_top = 75.0
+margin_top = 25.0
 margin_right = 100.0
-margin_bottom = 150.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 0, 50 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
 custom_fonts/font = SubResource( 2 )
 text = "Play"
 __meta__ = {
@@ -71,25 +123,29 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -100.0
-margin_top = 160.0
+margin_top = 135.0
 margin_right = 100.0
-margin_bottom = 235.0
+margin_bottom = 210.0
+custom_styles/hover = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
 custom_fonts/font = SubResource( 3 )
 text = "Quit"
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_editor_description_": "	"
 }
 
 [node name="Frame" type="Label" parent="."]
-margin_left = 115.817
-margin_top = 744.791
-margin_right = 235.817
-margin_bottom = 864.791
+margin_left = 115.0
+margin_top = 745.0
+margin_right = 235.0
+margin_bottom = 865.0
 custom_fonts/font = SubResource( 4 )
 text = "0"
 align = 1
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_use_anchors_": false
 }
 
 [node name="Letter" type="Label" parent="Frame"]
@@ -104,10 +160,10 @@ __meta__ = {
 }
 
 [node name="Frame2" type="Label" parent="."]
-margin_left = 450.795
-margin_top = 743.01
-margin_right = 570.795
-margin_bottom = 863.01
+margin_left = 450.0
+margin_top = 745.0
+margin_right = 570.0
+margin_bottom = 865.0
 custom_fonts/font = SubResource( 4 )
 text = "0"
 align = 1
@@ -128,10 +184,10 @@ __meta__ = {
 }
 
 [node name="Frame3" type="Label" parent="."]
-margin_left = 449.013
-margin_top = 853.481
-margin_right = 569.013
-margin_bottom = 973.481
+margin_left = 450.0
+margin_top = 860.0
+margin_right = 570.0
+margin_bottom = 980.0
 custom_fonts/font = SubResource( 4 )
 text = "0"
 align = 1
@@ -152,10 +208,10 @@ __meta__ = {
 }
 
 [node name="Frame4" type="Label" parent="."]
-margin_left = 290.433
-margin_top = 853.481
-margin_right = 410.433
-margin_bottom = 973.481
+margin_left = 290.0
+margin_top = 860.0
+margin_right = 410.0
+margin_bottom = 980.0
 custom_fonts/font = SubResource( 4 )
 text = "0"
 align = 1
@@ -165,21 +221,23 @@ __meta__ = {
 }
 
 [node name="Letter" type="Label" parent="Frame4"]
-margin_top = 25.0
-margin_right = 120.0
-margin_bottom = 145.0
+margin_left = 104.271
+margin_top = 10.5911
+margin_right = 224.271
+margin_bottom = 130.591
+rect_rotation = 90.0
 custom_fonts/font = SubResource( 5 )
-text = "V"
+text = ">"
 align = 1
 __meta__ = {
 "_editor_description_": ""
 }
 
 [node name="Frame5" type="Label" parent="."]
-margin_left = 115.817
-margin_top = 857.045
-margin_right = 235.817
-margin_bottom = 977.045
+margin_left = 115.0
+margin_top = 860.0
+margin_right = 235.0
+margin_bottom = 980.0
 custom_fonts/font = SubResource( 4 )
 text = "0"
 align = 1
@@ -200,10 +258,10 @@ __meta__ = {
 }
 
 [node name="Frame6" type="Label" parent="."]
-margin_left = 288.651
-margin_top = 746.573
-margin_right = 408.651
-margin_bottom = 866.573
+margin_left = 290.0
+margin_top = 745.0
+margin_right = 410.0
+margin_bottom = 865.0
 custom_fonts/font = SubResource( 4 )
 text = "0"
 align = 1
@@ -213,9 +271,9 @@ __meta__ = {
 }
 
 [node name="Letter" type="Label" parent="Frame6"]
-margin_left = 103.344
+margin_left = 104.344
 margin_top = 10.7456
-margin_right = 223.344
+margin_right = 224.344
 margin_bottom = 130.746
 rect_rotation = 90.0
 custom_fonts/font = SubResource( 5 )
@@ -224,5 +282,9 @@ align = 1
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]

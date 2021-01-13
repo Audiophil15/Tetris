@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Art/CUBE.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Art/GameInterface.jpg" type="Texture" id=2]
 [ext_resource path="res://Endscreen.gd" type="Script" id=3]
+[ext_resource path="res://Art/tetris_outro.ogg" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -86,5 +87,12 @@ margin_right = 60.0
 margin_bottom = 200.0
 custom_fonts/font = SubResource( 3 )
 text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
 [connection signal="pressed" from="Try again" to="." method="_on_Try_again_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]

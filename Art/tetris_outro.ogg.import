@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tetris_outro.ogg-e37e4e8f26cdeba69e27c190b91f2b2d.oggstr"
+
+[deps]
+
+source_file="res://Art/tetris_outro.ogg"
+dest_files=[ "res://.import/tetris_outro.ogg-e37e4e8f26cdeba69e27c190b91f2b2d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
